@@ -1,0 +1,27 @@
+{
+  "name": "json-to-sass-map",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/razwan/json-to-sass-map.git"
+  },
+  "keywords": [
+    "json",
+    "sass",
+    "scss"
+  ],
+  "author": "Razvan Onofrei <razvan.onofrei@pixelgrade.com> (http://razvanonofrei.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/razwan/json-to-sass-map/issues"
+  },
+  "homepage": "https://github.com/razwan/json-to-sass-map",
+  "dependencies": {
+    "lodash": "^3.10.1"
+  }
+}

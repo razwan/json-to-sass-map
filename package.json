@@ -1,11 +1,8 @@
 {
   "name": "json-to-sass-map",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/razwan/json-to-sass-map.git"
@@ -22,6 +19,6 @@
   },
   "homepage": "https://github.com/razwan/json-to-sass-map",
   "dependencies": {
-    "lodash": "^3.10.1"
+    "lodash": "*"
   }
 }

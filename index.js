@@ -8,12 +8,16 @@ module.exports = function( data ) {
 
     data = JSON.parse( data );
 
-    function getSCSS( chunk ) {
+    function getSCSS( chunk, initial ) {
         var scss = '';
 
         if ( typeof chunk === "object" && ! Array.isArray( chunk ) ) {
             _.mapKeys(chunk, function(value, key) {
-                scss += key + ': '
+                if (initial) {
+                    scss += key + ': '
+                } else {
+                    scss += "'" + key + "': "
+                }
 
                 if (typeof value === "object") {
                     if ( Array.isArray( value ) ) {
@@ -46,5 +50,5 @@ module.exports = function( data ) {
         return scss;
     }
 
-    return '$' + getSCSS( data ) + ';';
+    return '$' + getSCSS( data, true ) + ';';
 }

@@ -1,6 +1,6 @@
 var _ = require( 'lodash' );
 
-module.exports = function( data ) {
+module.exports = function( data, forceQuotedKeys = true ) {
 
     if ( ! data ) {
         return;
@@ -8,12 +8,18 @@ module.exports = function( data ) {
 
     data = JSON.parse( data );
 
-    function getSCSS( chunk ) {
+    function getSCSS( chunk, quotedKeys ) {
         var scss = '';
-
+        if (typeof quotedKeys === 'undefined') { quotedKeys = forceQuotedKeys; }
+        
         if ( typeof chunk === "object" && ! Array.isArray( chunk ) ) {
             _.mapKeys(chunk, function(value, key) {
-                scss += key + ': '
+                if (quotedKeys) { // If true, wrap the key in quotes
+                    scss += '"' + key + '": ';
+                }
+                else {
+                    scss += key + ': ';
+                }
 
                 if (typeof value === "object") {
                     if ( Array.isArray( value ) ) {
@@ -46,5 +52,5 @@ module.exports = function( data ) {
         return scss;
     }
 
-    return '$' + getSCSS( data ) + ';';
+    return '$' + getSCSS( data, false ) + ';'; // Never wrap the top-level variable in quotes
 }

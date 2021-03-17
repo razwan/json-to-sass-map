@@ -34,7 +34,8 @@ module.exports = function( data ) {
                         scss += '(' + getSCSS( value ) + ')';
                     }
                 } else {
-                    scss += getSCSS( value );
+                    if (typeof value === 'string' && value.indexOf(',') > -1) { scss += '(' + getSCSS( value ) + ')'; }
+                    else { scss += getSCSS( value ); }
                 }
                 scss += ', ';
             });
